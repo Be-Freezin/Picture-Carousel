@@ -1,0 +1,149 @@
+/*! We are using position: relative on the parent item, and position: absolute on the child elements. This allows us to position the child elements wherever we want on top of the parent element while using the full width and height of the parent element*/
+
+body{
+    margin: 0 ;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    background-color: black;
+    
+}
+
+/** CAROUSEL */
+    .carousel-head{
+        background-color: black;
+        border-bottom: 2px solid white;
+        display: flex;
+        flex-direction: column;
+    }
+    .carousel-title{
+        color: white;
+        font-size: 2rem;
+        text-align: center;
+        display: inline;
+        margin: 10px;
+        /* display: inline-flex;
+        justify-content: center;
+        align-items: center; */
+    }
+    /** Parent Element */
+        .carousel{
+            max-width: 600px;
+            position: relative;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+    /** Child element 1  */
+        .carousel-item, .carousel-item-hidden{
+            display: none;
+            
+        }
+        .carousel-item-visible{
+            display: block;
+            animation: fadeVisibility 0.5s;
+        }
+        img{
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            max-height: 600px;
+        }
+        .item-description{
+            background-color: rgb(63, 63, 63, 0.8);
+            
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            
+            max-height: 200px;
+            
+            position: absolute;
+            top: 65.2%;
+            transform: translateY(-0%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            animation: fadeVisibility 0.5s;
+        }
+        .title{
+            font-size: 4rem;
+            padding: 0 15px;
+            font-weight: 700;
+        
+            /* display: inline; */
+        }
+        .description{
+            padding: 0 15px;
+            font-size: 1rem;
+            line-height: 1.3;
+            color: white;
+        
+        }
+    /** Child element 2 (Action Buttons)displaying overtop of parent elements */
+        .carousel-actions{
+            
+            display: flex;
+            width: 100%;
+            max-width: 600px;
+            
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            /* by using translateY we are perfectly aligning our buttons in the center.
+            while using top:50%; It isn't taking into consideration any other dimensions. Using  transform we can correct this by offsetting by -50% */
+        }
+        .carousel-actions button{
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.61);
+            border: 0;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 40px;
+            height: 40px; 
+            margin: 10px;
+            /* padding: 10px; */
+        }
+        .prev-arrow::before{
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: black;
+            content: \f061;
+            font-size: 22px;
+        } 
+        .next-arrow::before{
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: black;
+            content: \f060;
+            font-size: 22px;
+        }
+        @keyframes fadeVisibility{
+            0%{ opacity: 0 }
+            100%{ opacity: 1}
+        }
+
+
+        @media (min-width: 320px) and (max-width: 550px){
+    
+           .title{
+            display: none;
+           }
+           .carousel-item{
+            margin: 0 10px;
+           }
+           .item-description{
+            width: 392px;
+            max-height: 200px;
+            top: 35%;
+           }
+        
+        
+        
+        
+        
+        
+        }
+
